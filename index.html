@@ -435,6 +435,29 @@
   .agent-name { font-family: var(--serif); font-size: 20px; font-weight: 300; }
   .agent-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
   .agent-contact { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .agent-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .agent-link {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    color: var(--charcoal);
+    background: #fff;
+    transition: all 0.2s;
+  }
+  .agent-link:hover {
+    background: var(--charcoal);
+    color: #fff;
+    border-color: var(--charcoal);
+  }
 
   /* ─── FOOTER ─── */
   footer {
@@ -638,15 +661,15 @@
   <div class="floorplan-grid">
     <div class="fade-up">
       <p class="section-eyebrow">Layout</p>
-      <h2 class="section-title">Thoughtfully<br><em>Designed</em> Spaces</h2>
-      <p class="section-body">A practical two-level family home with 5 bedrooms, 3 bathrooms, 2 storage rooms, 1 carport, and 1 balcony.</p>
+      <h2 class="section-title">Accurate<br><em>Floor Layout</em></h2>
+      <p class="section-body">This is a 500 sqm overall up-and-down home layout with clear separation of private and shared spaces.</p>
       <div class="rooms-list">
-        <div class="room-item"><span class="room-name">Bedrooms</span><span class="room-size">5 total</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Bathrooms</span><span class="room-size">3 total</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Storage Rooms</span><span class="room-size">2 total</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Carport</span><span class="room-size">1 slot</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Balcony</span><span class="room-size">1 area</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Outdoor Area</span><span class="room-size">Pool + nipa huts</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Total Floor Area</span><span class="room-size">500 sqm overall</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Upper Floor</span><span class="room-size">4 bedrooms + 2 CR + balcony</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Ground Floor</span><span class="room-size">1 bedroom + 1 CR</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Dining Area</span><span class="room-size">Downstairs</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Games Room</span><span class="room-size">Downstairs</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Lounge Room</span><span class="room-size">Downstairs</span><span class="room-arrow">→</span></div>
       </div>
     </div>
     <div class="floorplan-visual fade-up" style="transition-delay:0.15s">
@@ -664,16 +687,16 @@
         <path d="M280 170 Q260 190 260 170" stroke="#C9A96E" stroke-width="1" fill="none"/>
         <path d="M170 290 Q190 310 170 310" stroke="#C9A96E" stroke-width="1" fill="none"/>
         <!-- Labels -->
-        <text x="100" y="88" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Master Suite</text>
-        <text x="100" y="104" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">54 sqm</text>
-        <text x="278" y="88" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Kitchen</text>
-        <text x="278" y="104" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">38 sqm</text>
-        <text x="180" y="228" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="14" fill="#1C1C1A">Living &amp; Dining</text>
-        <text x="180" y="246" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">72 sqm</text>
-        <text x="88" y="352" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Bedroom 2</text>
-        <text x="88" y="368" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">32 sqm</text>
-        <text x="258" y="352" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Bedroom 3</text>
-        <text x="258" y="368" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">28 sqm</text>
+        <text x="100" y="88" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Upper Floor</text>
+        <text x="100" y="104" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">4 Bedrooms</text>
+        <text x="278" y="88" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Upper Floor</text>
+        <text x="278" y="104" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">2 CR + Balcony</text>
+        <text x="180" y="228" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="14" fill="#1C1C1A">Ground Floor</text>
+        <text x="180" y="246" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">Dining + Games + Lounge</text>
+        <text x="88" y="352" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Ground Floor</text>
+        <text x="88" y="368" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">1 Bedroom</text>
+        <text x="258" y="352" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Ground Floor</text>
+        <text x="258" y="368" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">1 CR</text>
         <!-- North indicator -->
         <circle cx="330" cy="405" r="12" stroke="#C9A96E" stroke-width="1" fill="none"/>
         <text x="330" y="409" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#C9A96E">N</text>
@@ -725,51 +748,28 @@
 <section class="contact" id="contact">
   <div class="contact-grid">
     <div class="fade-up">
-      <img src="images/photo-13-carport.png" alt="Carport area" class="contact-img">
+      <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1000&q=85" alt="Person using phone for online chat" class="contact-img">
       <div class="agent-card">
         <div class="agent-avatar-placeholder" aria-label="Anonymous owner profile">A</div>
         <div>
           <div class="agent-name">Maria Lourdes Bruce</div>
           <div class="agent-title">Owner</div>
           <div class="agent-contact">09663569767 &nbsp;·&nbsp; kenjiermita2020@gmail.com</div>
+          <div class="agent-links">
+            <a class="agent-link" href="https://www.facebook.com/mary.bruce.3388" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
+            <a class="agent-link" href="https://www.facebook.com/profile.php?id=61581922807759" target="_blank" rel="noopener noreferrer">Alternate Profile</a>
+          </div>
         </div>
       </div>
     </div>
     <div class="fade-up" style="transition-delay:0.15s">
       <p class="section-eyebrow">Get in Touch</p>
-      <h2 class="section-title">Schedule Your<br><em>Private Viewing</em></h2>
-      <p class="section-body">Interested in this property? Our consultant will get back to you within 24 hours to confirm your appointment.</p>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-success" id="formSuccess"></div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Maria" required>
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Santos" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" id="emailAddress" name="emailAddress" placeholder="maria@email.com" required>
-        </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+63 9XX XXX XXXX" required>
-        </div>
-        <div class="form-group">
-          <label>Preferred Viewing Date</label>
-          <input type="date" id="viewingDate" name="viewingDate" required>
-        </div>
-        <div class="form-group">
-          <label>Message (optional)</label>
-          <textarea id="buyerMessage" name="buyerMessage" placeholder="Any questions or specific requirements?"></textarea>
-        </div>
-        <p class="form-help">By submitting, you agree to be contacted by phone or email regarding this property.</p>
-        <button type="submit" class="btn-submit">Send Inquiry →</button>
-      </form>
+      <h2 class="section-title">Chat Directly on<br><em>Facebook</em></h2>
+      <p class="section-body">For faster replies, message the owner directly on Facebook using the links below.</p>
+      <div class="agent-links" style="margin-top: 24px;">
+        <a class="agent-link" href="https://www.facebook.com/mary.bruce.3388" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
+        <a class="agent-link" href="https://www.facebook.com/profile.php?id=61581922807759" target="_blank" rel="noopener noreferrer">Alternate Profile</a>
+      </div>
     </div>
   </div>
 </section>
@@ -876,38 +876,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Form submit
-function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('.btn-submit');
-  const success = document.getElementById('formSuccess');
-
-  const firstName = document.getElementById('firstName').value.trim();
-  const lastName = document.getElementById('lastName').value.trim();
-  const emailAddress = document.getElementById('emailAddress').value.trim();
-  const phoneNumber = document.getElementById('phoneNumber').value.trim();
-  const viewingDate = document.getElementById('viewingDate').value;
-  const buyerMessage = document.getElementById('buyerMessage').value.trim() || 'No additional message.';
-
-  const subject = encodeURIComponent('House Viewing Inquiry - Beautiful Home');
-  const body = encodeURIComponent(
-    `Name: ${firstName} ${lastName}\n` +
-    `Email: ${emailAddress}\n` +
-    `Phone: ${phoneNumber}\n` +
-    `Preferred Viewing Date: ${viewingDate}\n\n` +
-    `Message:\n${buyerMessage}`
-  );
-
-  window.location.href = `mailto:marco@casaserena.ph?subject=${subject}&body=${body}`;
-
-  btn.textContent = 'Inquiry Sent ✓';
-  btn.style.background = '#4a7c59';
-  btn.disabled = true;
-  success.textContent = 'Thank you. Your inquiry details were prepared in your email app. Please send the email to complete your request.';
-  success.classList.add('visible');
-  form.reset();
-}
 </script>
 </body>
 </html>
