@@ -365,7 +365,14 @@
     transition: background 0.3s, border-color 0.3s;
   }
   .amenity-card:hover { background: rgba(201,169,110,0.08); border-color: rgba(201,169,110,0.3); }
-  .amenity-icon { font-size: 24px; margin-bottom: 16px; }
+  .amenity-media {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,0.09);
+  }
   .amenity-name { font-family: var(--serif); font-size: 20px; color: var(--cream); margin-bottom: 8px; font-weight: 300; }
   .amenity-dist { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; }
 
@@ -786,32 +793,32 @@
   <p class="section-body fade-up">Located in the heart of Medellin, Cebu province, this home offers quick access to schools, pharmacies, the public market, and major roads for everyday convenience.</p>
   <div class="amenities-grid">
     <div class="amenity-card fade-up">
-      <div class="amenity-icon">🏫</div>
+      <img class="amenity-media" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80" alt="Nearby schools">
       <div class="amenity-name">Nearby Schools</div>
       <div class="amenity-dist">5-10 min drive</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.1s">
-      <div class="amenity-icon">🏬</div>
+      <img class="amenity-media" src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?w=700&q=80" alt="Public market">
       <div class="amenity-name">Public Market</div>
       <div class="amenity-dist">5 min drive</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.2s">
-      <div class="amenity-icon">🌿</div>
+      <img class="amenity-media" src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?w=700&q=80" alt="Town proper">
       <div class="amenity-name">Town Proper</div>
       <div class="amenity-dist">In the town center</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.3s">
-      <div class="amenity-icon">🏥</div>
+      <img class="amenity-media" src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=700&q=80" alt="Pharmacies">
       <div class="amenity-name">Pharmacies</div>
       <div class="amenity-dist">Within minutes</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.4s">
-      <div class="amenity-icon">🏖️</div>
+      <img class="amenity-media" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=80" alt="Beaches and food stalls">
       <div class="amenity-name">Beaches & Food Stalls</div>
       <div class="amenity-dist">Short drive to local spots</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.5s">
-      <div class="amenity-icon">🍽️</div>
+      <img class="amenity-media" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80" alt="Daily essentials">
       <div class="amenity-name">Daily Essentials</div>
       <div class="amenity-dist">Groceries and services nearby</div>
     </div>
