@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa Serena — Premium Property Listing</title>
+<title>Beautiful Family Home — Property Listing</title>
+<meta name="description" content="For sale in Medellin, Cebu: spacious 5-bedroom home with 3 bathrooms, 2 storage rooms, 1 carport, 1 balcony, and a small pool with nipa huts near schools, pharmacies, and the public market.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -68,6 +69,17 @@
   }
   .nav-cta:hover { background: var(--gold); }
 
+  .top-note {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+  }
+  .top-note strong { color: var(--gold-light); font-weight: 500; }
+
   /* ─── HERO ─── */
   .hero {
     position: relative; height: 100vh;
@@ -78,7 +90,7 @@
   .hero-bg {
     position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(28,28,26,0.15) 0%, rgba(28,28,26,0.55) 100%),
-      url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=85') center/cover no-repeat;
+      url('images/photo-01-front-exterior.png') center/cover no-repeat;
     transform: scale(1.05);
     transition: transform 8s ease;
   }
@@ -100,6 +112,23 @@
     font-size: 14px; letter-spacing: 0.08em; color: rgba(255,255,255,0.7);
     margin-bottom: 36px; line-height: 1.8;
   }
+  .hero-price {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+  .hero-price strong {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
   .hero-actions { display: flex; gap: 16px; align-items: center; }
   .btn-primary {
     background: var(--gold); color: #fff;
@@ -115,6 +144,9 @@
     display: flex; align-items: center; gap: 8px; transition: gap 0.2s;
   }
   .btn-ghost:hover { gap: 14px; }
+  .btn-link {
+    text-decoration: none;
+  }
   .hero-scroll {
     position: absolute; right: 48px; bottom: 64px; z-index: 1;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -147,6 +179,33 @@
     margin-bottom: 4px;
   }
   .stat-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  .proof-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 28px 48px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+  .proof-card {
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    background: var(--warm-white);
+  }
+  .proof-card h3 {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .proof-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
 
   /* ─── SECTION SHARED ─── */
   section { padding: 96px 48px; }
@@ -327,6 +386,21 @@
   }
   .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
   .form-group textarea { height: 100px; resize: none; }
+  .form-help {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: -2px;
+  }
+  .form-success {
+    display: none;
+    border: 1px solid #d7ebdc;
+    background: #f1f9f3;
+    color: #265a35;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .form-success.visible { display: block; }
   .btn-submit {
     background: var(--charcoal); color: #fff;
     padding: 16px 40px; font-size: 12px; letter-spacing: 0.15em;
@@ -344,6 +418,20 @@
     width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
     border: 2px solid var(--gold-light);
   }
+  .agent-avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-light);
+    background: linear-gradient(135deg, #d8d2c8, #bdb5a8);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: var(--sans);
+  }
   .agent-name { font-family: var(--serif); font-size: 20px; font-weight: 300; }
   .agent-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
   .agent-contact { font-size: 13px; color: var(--muted); margin-top: 6px; }
@@ -358,6 +446,25 @@
   .footer-logo span { color: var(--gold); }
   .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; }
 
+  .floating-cta {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 150;
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    padding: 14px 18px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: var(--sans);
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    display: none;
+  }
+  .floating-cta:hover { background: #b8954f; }
+
   /* ─── ANIMATIONS ─── */
   .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -365,24 +472,31 @@
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
     section { padding: 64px 24px; }
     .about-grid, .contact-grid, .floorplan-grid { grid-template-columns: 1fr; gap: 40px; }
     .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .proof-strip { grid-template-columns: 1fr; padding: 20px 24px; }
     .amenities-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
     .gallery-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
     .gallery-item { height: 220px; }
     .hero { padding: 0 24px 48px; }
+    .hero-scroll { display: none; }
+    .hero-actions { flex-wrap: wrap; }
     .about-accent { display: none; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
+    .floating-cta { display: inline-block; }
   }
 </style>
 </head>
 <body>
 
+<div class="top-note">Limited availability this month · <strong>Book your private viewing now</strong></div>
+
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">Casa<span>·</span>Serena</a>
+  <a href="#" class="nav-logo">Beautiful Home<span>·</span></a>
   <ul class="nav-links">
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#floorplan">Floor Plan</a></li>
@@ -398,10 +512,12 @@
   <div class="hero-content fade-up">
     <span class="hero-tag">Exclusively Listed</span>
     <h1 class="hero-title">A Home<br><em>Worth Every</em><br>Dream</h1>
-    <p class="hero-sub">4 Bedrooms &nbsp;·&nbsp; 3 Bathrooms &nbsp;·&nbsp; 320 sqm &nbsp;·&nbsp; Makati City</p>
+    <p class="hero-price">Asking Price <strong>₱11,000,000</strong></p>
+    <p class="hero-sub">5 Bedrooms &nbsp;·&nbsp; 3 Bathrooms &nbsp;·&nbsp; 2 Storage Rooms &nbsp;·&nbsp; Medellin, Cebu</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">View Gallery</button>
       <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Tour →</button>
+      <a class="btn-ghost btn-link" href="tel:+639178881234">Call Now →</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -413,50 +529,65 @@
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stat-item fade-up">
-    <span class="stat-num">₱28M</span>
+    <span class="stat-num">₱11M</span>
     <span class="stat-label">Asking Price</span>
   </div>
   <div class="stat-item fade-up" style="transition-delay:0.1s">
-    <span class="stat-num">320</span>
-    <span class="stat-label">Floor Area (sqm)</span>
-  </div>
-  <div class="stat-item fade-up" style="transition-delay:0.2s">
-    <span class="stat-num">2019</span>
-    <span class="stat-label">Year Built</span>
-  </div>
-  <div class="stat-item fade-up" style="transition-delay:0.3s">
-    <span class="stat-num">4 / 3</span>
+    <span class="stat-num">5 / 3</span>
     <span class="stat-label">Bedrooms / Baths</span>
   </div>
+  <div class="stat-item fade-up" style="transition-delay:0.2s">
+    <span class="stat-num">2</span>
+    <span class="stat-label">Storage Rooms</span>
+  </div>
+  <div class="stat-item fade-up" style="transition-delay:0.3s">
+    <span class="stat-num">1 + 1</span>
+    <span class="stat-label">Carport / Balcony</span>
+  </div>
 </div>
+
+<section class="proof-strip">
+  <div class="proof-card fade-up">
+    <h3>Verified Listing</h3>
+    <p>Complete ownership documents available for serious buyers during viewing.</p>
+  </div>
+  <div class="proof-card fade-up" style="transition-delay:0.08s">
+    <h3>Flexible Viewing</h3>
+    <p>Weekday and weekend schedule slots available with advance confirmation.</p>
+  </div>
+  <div class="proof-card fade-up" style="transition-delay:0.16s">
+    <h3>Fast Response</h3>
+    <p>Receive agent feedback within 24 hours after sending your inquiry.</p>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-image-wrap fade-up">
-      <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=85" alt="Living area" class="about-img">
+      <img src="images/photo-16-front-wide.png" alt="Front view of the house" class="about-img">
       <div class="about-accent"></div>
     </div>
     <div class="fade-up" style="transition-delay:0.15s">
       <p class="section-eyebrow">The Property</p>
-      <h2 class="section-title">Crafted for <em>Modern</em><br>Refined Living</h2>
-      <p class="section-body">Nestled in one of Makati's most sought-after addresses, this meticulously designed home blends contemporary architecture with warm, livable spaces. Every detail has been considered — from the soaring ceilings to the seamless indoor-outdoor flow.</p>
+      <h2 class="section-title">Spacious and <em>Ready</em><br>for Family Living</h2>
+      <p class="section-body">Nestled in a highly convenient area in Medellin, Cebu, this home offers generous indoor and outdoor space for daily family life. It is in the heart of town, close to schools, pharmacies, and the public market.</p>
       <div class="about-features">
         <div class="feature-item">
           <div class="feature-dot"></div>
-          <div class="feature-text"><span class="feature-label">Chef's Kitchen</span>Italian marble countertops & premium appliances</div>
+          <div class="feature-text"><span class="feature-label">5 Bedrooms</span>Comfortable rooms for family members and guests</div>
         </div>
         <div class="feature-item">
           <div class="feature-dot"></div>
-          <div class="feature-text"><span class="feature-label">Master Suite</span>Walk-in closet with en-suite spa bath</div>
+          <div class="feature-text"><span class="feature-label">3 Bathrooms</span>Practical layout for a busy household</div>
         </div>
         <div class="feature-item">
           <div class="feature-dot"></div>
-          <div class="feature-text"><span class="feature-label">Smart Home</span>Fully automated lighting & climate control</div>
+          <div class="feature-text"><span class="feature-label">Utility Spaces</span>2 storage rooms plus 1 secure carport</div>
         </div>
         <div class="feature-item">
           <div class="feature-dot"></div>
-          <div class="feature-text"><span class="feature-label">Private Garden</span>Landscaped with al fresco dining space</div>
+          <div class="feature-text"><span class="feature-label">Outdoor Amenities</span>Small pool, nipa huts, and 1 balcony</div>
         </div>
       </div>
     </div>
@@ -479,25 +610,25 @@
     </div>
   </div>
   <div class="gallery-grid" id="galleryGrid">
-    <div class="gallery-item fade-up" data-cat="living" data-index="0" onclick="openLightbox(0)">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=85" alt="Living Room">
-      <div class="gallery-overlay"><span class="gallery-label">Living Room</span></div>
+    <div class="gallery-item fade-up" data-cat="outdoor" data-index="0" onclick="openLightbox(0)">
+      <img class="gallery-img" src="images/photo-01-front-exterior.png" alt="Front exterior">
+      <div class="gallery-overlay"><span class="gallery-label">Front Exterior</span></div>
     </div>
     <div class="gallery-item fade-up" style="transition-delay:0.08s" data-cat="kitchen" data-index="1" onclick="openLightbox(1)">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85" alt="Kitchen">
-      <div class="gallery-overlay"><span class="gallery-label">Chef's Kitchen</span></div>
+      <img class="gallery-img" src="images/photo-08-kitchen-1.png" alt="Kitchen">
+      <div class="gallery-overlay"><span class="gallery-label">Kitchen</span></div>
     </div>
     <div class="gallery-item fade-up" style="transition-delay:0.12s" data-cat="bedroom" data-index="2" onclick="openLightbox(2)">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=85" alt="Master Bedroom">
+      <img class="gallery-img" src="images/photo-06-master-bedroom.png" alt="Master bedroom">
       <div class="gallery-overlay"><span class="gallery-label">Master Bedroom</span></div>
     </div>
-    <div class="gallery-item fade-up" style="transition-delay:0.16s" data-cat="bedroom" data-index="3" onclick="openLightbox(3)">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=700&q=85" alt="Guest Bedroom">
-      <div class="gallery-overlay"><span class="gallery-label">Guest Bedroom</span></div>
+    <div class="gallery-item fade-up" style="transition-delay:0.16s" data-cat="living" data-index="3" onclick="openLightbox(3)">
+      <img class="gallery-img" src="images/photo-11-games-room-2.png" alt="Games room">
+      <div class="gallery-overlay"><span class="gallery-label">Games Room</span></div>
     </div>
     <div class="gallery-item fade-up" style="transition-delay:0.20s" data-cat="outdoor" data-index="4" onclick="openLightbox(4)">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=85" alt="Garden">
-      <div class="gallery-overlay"><span class="gallery-label">Garden & Terrace</span></div>
+      <img class="gallery-img" src="images/photo-03-small-pool-nipahut.png" alt="Small pool and nipa hut">
+      <div class="gallery-overlay"><span class="gallery-label">Small Pool & Nipa Hut</span></div>
     </div>
   </div>
 </section>
@@ -508,14 +639,14 @@
     <div class="fade-up">
       <p class="section-eyebrow">Layout</p>
       <h2 class="section-title">Thoughtfully<br><em>Designed</em> Spaces</h2>
-      <p class="section-body">A generous 320 sqm spread across two levels, designed so every square metre serves a purpose — and a feeling.</p>
+      <p class="section-body">A practical two-level family home with 5 bedrooms, 3 bathrooms, 2 storage rooms, 1 carport, and 1 balcony.</p>
       <div class="rooms-list">
-        <div class="room-item"><span class="room-name">Master Suite</span><span class="room-size">54 sqm</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Living & Dining</span><span class="room-size">72 sqm</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Chef's Kitchen</span><span class="room-size">38 sqm</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Bedroom 2</span><span class="room-size">32 sqm</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Bedroom 3</span><span class="room-size">28 sqm</span><span class="room-arrow">→</span></div>
-        <div class="room-item"><span class="room-name">Garden & Terrace</span><span class="room-size">60 sqm</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Bedrooms</span><span class="room-size">5 total</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Bathrooms</span><span class="room-size">3 total</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Storage Rooms</span><span class="room-size">2 total</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Carport</span><span class="room-size">1 slot</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Balcony</span><span class="room-size">1 area</span><span class="room-arrow">→</span></div>
+        <div class="room-item"><span class="room-name">Outdoor Area</span><span class="room-size">Pool + nipa huts</span><span class="room-arrow">→</span></div>
       </div>
     </div>
     <div class="floorplan-visual fade-up" style="transition-delay:0.15s">
@@ -555,37 +686,37 @@
 <section class="neighborhood" id="neighborhood">
   <p class="section-eyebrow fade-up">Location</p>
   <h2 class="section-title fade-up">Everything Within <em>Reach</em></h2>
-  <p class="section-body fade-up">Situated in the heart of Makati, moments from the city's finest dining, schools, and green spaces.</p>
+  <p class="section-body fade-up">Located in the heart of Medellin, Cebu province, this home offers quick access to schools, pharmacies, the public market, and major roads for everyday convenience.</p>
   <div class="amenities-grid">
     <div class="amenity-card fade-up">
       <div class="amenity-icon">🏫</div>
-      <div class="amenity-name">International School</div>
-      <div class="amenity-dist">5 min drive</div>
+      <div class="amenity-name">Nearby Schools</div>
+      <div class="amenity-dist">5-10 min drive</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.1s">
       <div class="amenity-icon">🏬</div>
-      <div class="amenity-name">Greenbelt Mall</div>
-      <div class="amenity-dist">8 min walk</div>
+      <div class="amenity-name">Public Market</div>
+      <div class="amenity-dist">5 min drive</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.2s">
       <div class="amenity-icon">🌿</div>
-      <div class="amenity-name">Ayala Triangle</div>
-      <div class="amenity-dist">10 min walk</div>
+      <div class="amenity-name">Town Proper</div>
+      <div class="amenity-dist">In the town center</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.3s">
       <div class="amenity-icon">🏥</div>
-      <div class="amenity-name">Makati Medical</div>
-      <div class="amenity-dist">12 min drive</div>
+      <div class="amenity-name">Pharmacies</div>
+      <div class="amenity-dist">Within minutes</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.4s">
-      <div class="amenity-icon">✈️</div>
-      <div class="amenity-name">NAIA Airport</div>
-      <div class="amenity-dist">20 min drive</div>
+      <div class="amenity-icon">🏖️</div>
+      <div class="amenity-name">Beaches & Food Stalls</div>
+      <div class="amenity-dist">Short drive to local spots</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.5s">
       <div class="amenity-icon">🍽️</div>
-      <div class="amenity-name">Fine Dining Strip</div>
-      <div class="amenity-dist">3 min walk</div>
+      <div class="amenity-name">Daily Essentials</div>
+      <div class="amenity-dist">Groceries and services nearby</div>
     </div>
   </div>
 </section>
@@ -594,13 +725,13 @@
 <section class="contact" id="contact">
   <div class="contact-grid">
     <div class="fade-up">
-      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85" alt="Exterior" class="contact-img">
+      <img src="images/photo-13-carport.png" alt="Carport area" class="contact-img">
       <div class="agent-card">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=85" alt="Agent" class="agent-avatar">
+        <div class="agent-avatar-placeholder" aria-label="Anonymous owner profile">A</div>
         <div>
-          <div class="agent-name">Marco Reyes</div>
-          <div class="agent-title">Senior Property Consultant</div>
-          <div class="agent-contact">+63 917 888 1234 &nbsp;·&nbsp; marco@casaserena.ph</div>
+          <div class="agent-name">Maria Lourdes Bruce</div>
+          <div class="agent-title">Owner</div>
+          <div class="agent-contact">09663569767 &nbsp;·&nbsp; kenjiermita2020@gmail.com</div>
         </div>
       </div>
     </div>
@@ -609,32 +740,34 @@
       <h2 class="section-title">Schedule Your<br><em>Private Viewing</em></h2>
       <p class="section-body">Interested in this property? Our consultant will get back to you within 24 hours to confirm your appointment.</p>
       <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-success" id="formSuccess"></div>
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input type="text" placeholder="Maria">
+            <input type="text" id="firstName" name="firstName" placeholder="Maria" required>
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input type="text" placeholder="Santos">
+            <input type="text" id="lastName" name="lastName" placeholder="Santos" required>
           </div>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="maria@email.com">
+          <input type="email" id="emailAddress" name="emailAddress" placeholder="maria@email.com" required>
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="tel" placeholder="+63 9XX XXX XXXX">
+          <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+63 9XX XXX XXXX" required>
         </div>
         <div class="form-group">
           <label>Preferred Viewing Date</label>
-          <input type="date">
+          <input type="date" id="viewingDate" name="viewingDate" required>
         </div>
         <div class="form-group">
           <label>Message (optional)</label>
-          <textarea placeholder="Any questions or specific requirements?"></textarea>
+          <textarea id="buyerMessage" name="buyerMessage" placeholder="Any questions or specific requirements?"></textarea>
         </div>
+        <p class="form-help">By submitting, you agree to be contacted by phone or email regarding this property.</p>
         <button type="submit" class="btn-submit">Send Inquiry →</button>
       </form>
     </div>
@@ -643,9 +776,11 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Casa<span>·</span>Serena</div>
-  <div class="footer-copy">© 2026 Casa Serena. All rights reserved.</div>
+  <div class="footer-logo">Beautiful<span>·</span>Home</div>
+  <div class="footer-copy">© 2026 Beautiful Home. All rights reserved.</div>
 </footer>
+
+<button class="floating-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Viewing</button>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -683,11 +818,23 @@ function filterGallery(cat, btn) {
 
 // Lightbox
 const images = [
-  { src: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1400&q=90', label: 'Living Room' },
-  { src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=90', label: "Chef's Kitchen" },
-  { src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1400&q=90', label: 'Master Bedroom' },
-  { src: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1400&q=90', label: 'Guest Bedroom' },
-  { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=90', label: 'Garden & Terrace' },
+  { src: 'images/photo-01-front-exterior.png', label: 'Front Exterior' },
+  { src: 'images/photo-08-kitchen-1.png', label: 'Kitchen' },
+  { src: 'images/photo-06-master-bedroom.png', label: 'Master Bedroom' },
+  { src: 'images/photo-11-games-room-2.png', label: 'Games Room' },
+  { src: 'images/photo-03-small-pool-nipahut.png', label: 'Small Pool & Nipa Hut' },
+  { src: 'images/photo-02-dog-cage.png', label: 'Front Dog Cage Area' },
+  { src: 'images/photo-04-games-room-1.png', label: 'Living/Games Area' },
+  { src: 'images/photo-05-master-wardrobe.png', label: 'Master Bedroom Wardrobe' },
+  { src: 'images/photo-07-stairs.png', label: 'Stairway' },
+  { src: 'images/photo-09-kitchen-2.png', label: 'Kitchen Angle 2' },
+  { src: 'images/photo-10-bbq-area.png', label: 'Backyard BBQ Area' },
+  { src: 'images/photo-12-dining.png', label: 'Dining Area' },
+  { src: 'images/photo-13-carport.png', label: 'Carport' },
+  { src: 'images/photo-14-lounge-room.png', label: 'Lounge Room' },
+  { src: 'images/photo-15-small-bar.png', label: 'Small Bar Area' },
+  { src: 'images/photo-16-front-wide.png', label: 'Front View from Street' },
+  { src: 'images/photo-17-balcony.png', label: 'Guest Room Balcony' },
 ];
 let currentIdx = 0;
 
@@ -732,10 +879,34 @@ document.addEventListener('keydown', e => {
 // Form submit
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
+  const form = e.target;
+  const btn = form.querySelector('.btn-submit');
+  const success = document.getElementById('formSuccess');
+
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const emailAddress = document.getElementById('emailAddress').value.trim();
+  const phoneNumber = document.getElementById('phoneNumber').value.trim();
+  const viewingDate = document.getElementById('viewingDate').value;
+  const buyerMessage = document.getElementById('buyerMessage').value.trim() || 'No additional message.';
+
+  const subject = encodeURIComponent('House Viewing Inquiry - Beautiful Home');
+  const body = encodeURIComponent(
+    `Name: ${firstName} ${lastName}\n` +
+    `Email: ${emailAddress}\n` +
+    `Phone: ${phoneNumber}\n` +
+    `Preferred Viewing Date: ${viewingDate}\n\n` +
+    `Message:\n${buyerMessage}`
+  );
+
+  window.location.href = `mailto:marco@casaserena.ph?subject=${subject}&body=${body}`;
+
   btn.textContent = 'Inquiry Sent ✓';
   btn.style.background = '#4a7c59';
   btn.disabled = true;
+  success.textContent = 'Thank you. Your inquiry details were prepared in your email app. Please send the email to complete your request.';
+  success.classList.add('visible');
+  form.reset();
 }
 </script>
 </body>
