@@ -458,6 +458,40 @@
     color: #fff;
     border-color: var(--charcoal);
   }
+  .contact-owner {
+    margin-top: 26px;
+    padding: 20px 22px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .contact-owner-name {
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1.1;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .contact-owner-role {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .contact-owner-phone {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+  .contact-owner-email {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+  }
 
   /* ─── FOOTER ─── */
   footer {
@@ -507,9 +541,23 @@
     .hero { padding: 0 24px 48px; }
     .hero-scroll { display: none; }
     .hero-actions { flex-wrap: wrap; }
+    .btn-primary, .btn-ghost { padding: 14px 20px; }
+    .gallery-filter { overflow-x: auto; padding-bottom: 4px; }
+    .filter-btn { white-space: nowrap; }
+    .contact-owner-name { font-size: 28px; }
+    .contact-owner-phone { font-size: 24px; word-break: break-word; }
     .about-accent { display: none; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
     .floating-cta { display: inline-block; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-title { font-size: clamp(42px, 13vw, 68px); }
+    .hero-sub { font-size: 13px; letter-spacing: 0.05em; }
+    .section-title { font-size: clamp(30px, 9vw, 42px); }
+    .contact-owner { padding: 18px; }
+    .contact-owner-name { font-size: 24px; }
+    .contact-owner-phone { font-size: 22px; }
   }
 </style>
 </head>
@@ -749,26 +797,20 @@
   <div class="contact-grid">
     <div class="fade-up">
       <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1000&q=85" alt="Person using phone for online chat" class="contact-img">
-      <div class="agent-card">
-        <div class="agent-avatar-placeholder" aria-label="Anonymous owner profile">A</div>
-        <div>
-          <div class="agent-name">Maria Lourdes Bruce</div>
-          <div class="agent-title">Owner</div>
-          <div class="agent-contact">09663569767 &nbsp;·&nbsp; kenjiermita2020@gmail.com</div>
-          <div class="agent-links">
-            <a class="agent-link" href="https://www.facebook.com/mary.bruce.3388" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
-            <a class="agent-link" href="https://www.facebook.com/profile.php?id=61581922807759" target="_blank" rel="noopener noreferrer">Alternate Profile</a>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="fade-up" style="transition-delay:0.15s">
       <p class="section-eyebrow">Get in Touch</p>
-      <h2 class="section-title">Chat Directly on<br><em>Facebook</em></h2>
-      <p class="section-body">For faster replies, message the owner directly on Facebook using the links below.</p>
-      <div class="agent-links" style="margin-top: 24px;">
-        <a class="agent-link" href="https://www.facebook.com/mary.bruce.3388" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
-        <a class="agent-link" href="https://www.facebook.com/profile.php?id=61581922807759" target="_blank" rel="noopener noreferrer">Alternate Profile</a>
+      <h2 class="section-title">Contact the Owner<br><em>Directly</em></h2>
+      <p class="section-body">Serious buyers may contact the owner directly for viewing schedules and full property details.</p>
+      <div class="contact-owner">
+        <div class="agent-links" style="margin-top: 0; margin-bottom: 14px;">
+          <a class="agent-link" href="https://www.facebook.com/mary.bruce.3388" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
+          <a class="agent-link" href="https://www.facebook.com/profile.php?id=61581922807759" target="_blank" rel="noopener noreferrer">Alternate Profile</a>
+        </div>
+        <p class="contact-owner-name">Maria Lourdes Bruce</p>
+        <p class="contact-owner-role">Owner</p>
+        <p class="contact-owner-phone">09663569767</p>
+        <p class="contact-owner-email">kenjiermita2020@gmail.com</p>
       </div>
     </div>
   </div>
