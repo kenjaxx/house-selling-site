@@ -443,20 +443,46 @@
   }
   .agent-link {
     display: inline-block;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 8px 12px;
-    border: 1px solid var(--border);
-    color: var(--charcoal);
-    background: #fff;
-    transition: all 0.2s;
+    padding: 11px 16px;
+    border: 1px solid #1877f2;
+    color: #fff;
+    background: #1877f2;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s, transform 0.15s;
+    box-shadow: 0 4px 12px rgba(24,119,242,0.28);
   }
   .agent-link:hover {
-    background: var(--charcoal);
-    color: #fff;
-    border-color: var(--charcoal);
+    background: #0f63d1;
+    border-color: #0f63d1;
+    transform: translateY(-1px);
+  }
+  .agent-link:active {
+    transform: translateY(0);
+  }
+  .agent-link::after {
+    content: "  ->";
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  .link-hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #1877f2;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    animation: pulseHint 1.6s ease-in-out infinite;
+  }
+  @keyframes pulseHint {
+    0%, 100% { opacity: 0.6; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(3px); }
   }
   .contact-owner {
     margin-top: 26px;
@@ -804,9 +830,9 @@
       <p class="section-body">Serious buyers may contact the owner directly for viewing schedules and full property details.</p>
       <div class="contact-owner">
         <div class="agent-links" style="margin-top: 0; margin-bottom: 14px;">
-          <a class="agent-link" href="https://www.facebook.com/mary.bruce.3388" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
-          <a class="agent-link" href="https://www.facebook.com/profile.php?id=61581922807759" target="_blank" rel="noopener noreferrer">Alternate Profile</a>
+          <a class="agent-link" href="https://www.facebook.com/profile.php?id=61581922807759" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
         </div>
+        <p class="link-hint">Tap here to chat instantly -></p>
         <p class="contact-owner-name">Maria Lourdes Bruce</p>
         <p class="contact-owner-role">Owner</p>
         <p class="contact-owner-phone">09663569767</p>
