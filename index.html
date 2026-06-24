@@ -90,7 +90,7 @@
   .hero-bg {
     position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(28,28,26,0.15) 0%, rgba(28,28,26,0.55) 100%),
-      url('images/photo-01-front-exterior.png') center/cover no-repeat;
+      url('images/house.jpg') center/cover no-repeat;
     transform: scale(1.05);
     transition: transform 8s ease;
   }
@@ -144,9 +144,7 @@
     display: flex; align-items: center; gap: 8px; transition: gap 0.2s;
   }
   .btn-ghost:hover { gap: 14px; }
-  .btn-link {
-    text-decoration: none;
-  }
+  .btn-link { text-decoration: none; }
   .hero-scroll {
     position: absolute; right: 48px; bottom: 64px; z-index: 1;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -246,9 +244,9 @@
   .gallery { background: var(--warm-white); }
   .gallery-header {
     display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 48px;
+    margin-bottom: 20px;
   }
-  .gallery-filter { display: flex; gap: 4px; }
+  .gallery-filter { display: flex; gap: 4px; flex-wrap: wrap; }
   .filter-btn {
     padding: 8px 20px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
     background: transparent; border: 1px solid var(--border); cursor: pointer;
@@ -257,22 +255,25 @@
   }
   .filter-btn.active, .filter-btn:hover { background: var(--charcoal); color: #fff; border-color: var(--charcoal); }
 
-  /* Main masonry grid */
-  .gallery-grid {
+  .gallery-count {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── New multi-photo grid ── */
+  .gallery-grid-new {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 280px 280px;
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
   }
-  .gallery-item {
-    overflow: hidden; cursor: pointer; position: relative;
+  .gallery-grid-new .gallery-item {
+    height: 260px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
   }
-  .gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
-  .gallery-item:nth-child(2) { grid-column: span 4; }
-  .gallery-item:nth-child(3) { grid-column: span 3; }
-  .gallery-item:nth-child(4) { grid-column: span 3; }
-  .gallery-item:nth-child(5) { grid-column: span 4; }
-
   .gallery-img {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
@@ -284,12 +285,22 @@
     background: linear-gradient(to top, rgba(28,28,26,0.7) 0%, transparent 60%);
     opacity: 0; transition: opacity 0.4s;
     display: flex; align-items: flex-end;
-    padding: 24px;
+    padding: 20px;
   }
   .gallery-item:hover .gallery-overlay { opacity: 1; }
   .gallery-label {
-    color: #fff; font-family: var(--serif); font-size: 18px;
+    color: #fff; font-family: var(--serif); font-size: 17px;
     font-weight: 300; font-style: italic;
+  }
+
+  /* Gallery empty state */
+  .gallery-empty {
+    grid-column: 1 / -1;
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    border: 1px dashed var(--border);
   }
 
   /* Lightbox */
@@ -305,6 +316,7 @@
   .lightbox-img {
     max-width: 90vw; max-height: 85vh;
     object-fit: contain; display: block;
+    transition: opacity 0.3s;
   }
   .lightbox-close {
     position: fixed; top: 32px; right: 40px;
@@ -380,74 +392,6 @@
   .contact { background: var(--warm-white); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .contact-img { width: 100%; height: 500px; object-fit: cover; }
-  .contact-form { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-group label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-  .form-group input, .form-group textarea, .form-group select {
-    padding: 14px 16px; border: 1px solid var(--border);
-    background: var(--cream); font-family: var(--sans); font-size: 14px;
-    color: var(--charcoal); outline: none;
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
-  }
-  .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
-  .form-group textarea { height: 100px; resize: none; }
-  .form-help {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: -2px;
-  }
-  .form-success {
-    display: none;
-    border: 1px solid #d7ebdc;
-    background: #f1f9f3;
-    color: #265a35;
-    padding: 12px 14px;
-    font-size: 13px;
-    line-height: 1.5;
-  }
-  .form-success.visible { display: block; }
-  .btn-submit {
-    background: var(--charcoal); color: #fff;
-    padding: 16px 40px; font-size: 12px; letter-spacing: 0.15em;
-    text-transform: uppercase; border: none; cursor: pointer;
-    font-family: var(--sans); align-self: flex-start;
-    transition: background 0.2s;
-  }
-  .btn-submit:hover { background: var(--gold); }
-  .agent-card {
-    margin-top: 40px; padding: 24px;
-    border: 1px solid var(--border); background: var(--cream);
-    display: flex; gap: 20px; align-items: center;
-  }
-  .agent-avatar {
-    width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
-    border: 2px solid var(--gold-light);
-  }
-  .agent-avatar-placeholder {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    border: 2px solid var(--gold-light);
-    background: linear-gradient(135deg, #d8d2c8, #bdb5a8);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    font-weight: 500;
-    font-family: var(--sans);
-  }
-  .agent-name { font-family: var(--serif); font-size: 20px; font-weight: 300; }
-  .agent-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
-  .agent-contact { font-size: 13px; color: var(--muted); margin-top: 6px; }
-  .agent-links {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
   .agent-link {
     display: inline-block;
     font-size: 12px;
@@ -463,19 +407,9 @@
     transition: all 0.2s, transform 0.15s;
     box-shadow: 0 4px 12px rgba(24,119,242,0.28);
   }
-  .agent-link:hover {
-    background: #0f63d1;
-    border-color: #0f63d1;
-    transform: translateY(-1px);
-  }
-  .agent-link:active {
-    transform: translateY(0);
-  }
-  .agent-link::after {
-    content: "  ->";
-    font-weight: 700;
-    margin-left: 4px;
-  }
+  .agent-link:hover { background: #0f63d1; border-color: #0f63d1; transform: translateY(-1px); }
+  .agent-link:active { transform: translateY(0); }
+  .agent-link::after { content: "  ->"; font-weight: 700; margin-left: 4px; }
   .link-hint {
     margin-top: 10px;
     font-size: 12px;
@@ -559,6 +493,87 @@
   .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
+  /* ─── SCHEDULE MODAL ─── */
+  .sched-modal-overlay {
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(10,10,8,0.72);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .sched-modal-overlay.open {
+    opacity: 1; pointer-events: all;
+  }
+  .sched-modal {
+    background: var(--warm-white);
+    max-width: 480px; width: 100%;
+    padding: 48px 44px 40px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+  }
+  .sched-modal-overlay.open .sched-modal {
+    transform: translateY(0);
+  }
+  .sched-modal-close {
+    position: absolute; top: 18px; right: 22px;
+    background: none; border: none; font-size: 22px;
+    color: var(--muted); cursor: pointer; line-height: 1;
+    transition: color 0.2s;
+  }
+  .sched-modal-close:hover { color: var(--charcoal); }
+  .sched-modal-tag {
+    display: inline-block; background: var(--gold);
+    color: #fff; font-size: 9px; letter-spacing: 0.22em;
+    text-transform: uppercase; padding: 5px 14px;
+    margin-bottom: 18px;
+  }
+  .sched-modal-title {
+    font-family: var(--serif); font-size: 34px;
+    font-weight: 300; line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .sched-modal-title em { font-style: italic; }
+  .sched-modal-body {
+    font-size: 14px; color: var(--muted); line-height: 1.8;
+    margin-bottom: 30px;
+  }
+  .sched-modal-divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 0 0 28px;
+  }
+  .sched-contact-row {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 18px;
+  }
+  .sched-contact-row:last-child { margin-bottom: 0; }
+  .sched-icon {
+    width: 42px; height: 42px; background: var(--cream);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 18px;
+  }
+  .sched-contact-label {
+    font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--gold);
+    display: block; margin-bottom: 3px; font-weight: 500;
+  }
+  .sched-contact-value {
+    font-family: var(--serif); font-size: 20px;
+    font-weight: 300; color: var(--charcoal);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  a.sched-contact-value:hover { color: var(--gold); }
+  .sched-modal-note {
+    margin-top: 24px;
+    font-size: 12px; color: var(--muted);
+    letter-spacing: 0.04em; text-align: center;
+  }
+
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
     .nav-links { display: none; }
@@ -568,9 +583,9 @@
     .stats-bar { grid-template-columns: repeat(2, 1fr); }
     .proof-strip { grid-template-columns: 1fr; padding: 20px 24px; }
     .amenities-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .gallery-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
-    .gallery-item { height: 220px; }
+    .gallery-grid-new { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid-new .gallery-item { height: 200px; }
+    .gallery-header { flex-direction: column; align-items: flex-start; gap: 20px; }
     .hero { padding: 0 24px 48px; }
     .hero-scroll { display: none; }
     .hero-actions { flex-wrap: wrap; }
@@ -591,6 +606,8 @@
     .contact-owner { padding: 18px; }
     .contact-owner-name { font-size: 24px; }
     .contact-owner-phone { font-size: 22px; }
+    .gallery-grid-new { grid-template-columns: 1fr 1fr; }
+    .gallery-grid-new .gallery-item { height: 160px; }
   }
 </style>
 </head>
@@ -607,7 +624,7 @@
     <li><a href="#neighborhood">Location</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule Viewing</button>
+  <button class="nav-cta" onclick="openSchedModal()">Schedule Viewing</button>
 </nav>
 
 <!-- HERO -->
@@ -620,7 +637,7 @@
     <p class="hero-sub">5 Bedrooms &nbsp;·&nbsp; 3 Bathrooms &nbsp;·&nbsp; 2 Storage Rooms &nbsp;·&nbsp; Medellin, Cebu</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">View Gallery</button>
-      <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Tour →</button>
+      <button class="btn-ghost" onclick="openSchedModal()">Schedule a Tour →</button>
       <a class="btn-ghost btn-link" href="tel:+639560354405">Call Now →</a>
     </div>
   </div>
@@ -669,7 +686,7 @@
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-image-wrap fade-up">
-      <img src="images/photo-16-front-wide.png" alt="Front view of the house" class="about-img">
+      <img src="images/front.jpg" alt="Front view of the house" class="about-img">
       <div class="about-accent"></div>
     </div>
     <div class="fade-up" style="transition-delay:0.15s">
@@ -710,31 +727,12 @@
       <button class="filter-btn" onclick="filterGallery('living', this)">Living</button>
       <button class="filter-btn" onclick="filterGallery('kitchen', this)">Kitchen</button>
       <button class="filter-btn" onclick="filterGallery('bedroom', this)">Bedrooms</button>
+      <button class="filter-btn" onclick="filterGallery('cr', this)">Comfort Rooms</button>
       <button class="filter-btn" onclick="filterGallery('outdoor', this)">Outdoor</button>
     </div>
   </div>
-  <div class="gallery-grid" id="galleryGrid">
-    <div class="gallery-item fade-up" data-cat="outdoor" data-index="0" onclick="openLightbox(0)">
-      <img class="gallery-img" src="images/photo-01-front-exterior.png" alt="Front exterior">
-      <div class="gallery-overlay"><span class="gallery-label">Front Exterior</span></div>
-    </div>
-    <div class="gallery-item fade-up" style="transition-delay:0.08s" data-cat="kitchen" data-index="1" onclick="openLightbox(1)">
-      <img class="gallery-img" src="images/photo-08-kitchen-1.png" alt="Kitchen">
-      <div class="gallery-overlay"><span class="gallery-label">Kitchen</span></div>
-    </div>
-    <div class="gallery-item fade-up" style="transition-delay:0.12s" data-cat="bedroom" data-index="2" onclick="openLightbox(2)">
-      <img class="gallery-img" src="images/photo-06-master-bedroom.png" alt="Master bedroom">
-      <div class="gallery-overlay"><span class="gallery-label">Master Bedroom</span></div>
-    </div>
-    <div class="gallery-item fade-up" style="transition-delay:0.16s" data-cat="living" data-index="3" onclick="openLightbox(3)">
-      <img class="gallery-img" src="images/photo-11-games-room-2.png" alt="Games room">
-      <div class="gallery-overlay"><span class="gallery-label">Games Room</span></div>
-    </div>
-    <div class="gallery-item fade-up" style="transition-delay:0.20s" data-cat="outdoor" data-index="4" onclick="openLightbox(4)">
-      <img class="gallery-img" src="images/photo-03-small-pool-nipahut.png" alt="Small pool and nipa hut">
-      <div class="gallery-overlay"><span class="gallery-label">Small Pool & Nipa Hut</span></div>
-    </div>
-  </div>
+  <p class="gallery-count" id="gallery-count"></p>
+  <div class="gallery-grid-new" id="galleryGrid"></div>
 </section>
 
 <!-- FLOOR PLAN -->
@@ -755,19 +753,15 @@
     </div>
     <div class="floorplan-visual fade-up" style="transition-delay:0.15s">
       <svg viewBox="0 0 360 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer wall -->
         <rect x="10" y="10" width="340" height="400" rx="2" stroke="#1C1C1A" stroke-width="2.5"/>
-        <!-- Rooms -->
         <rect x="10" y="10" width="200" height="160" stroke="#1C1C1A" stroke-width="1" fill="#F7F3ED"/>
         <rect x="210" y="10" width="140" height="160" stroke="#1C1C1A" stroke-width="1" fill="#EDE8E0"/>
         <rect x="10" y="170" width="340" height="120" stroke="#1C1C1A" stroke-width="1" fill="#F7F3ED"/>
         <rect x="10" y="290" width="160" height="120" stroke="#1C1C1A" stroke-width="1" fill="#EDE8E0"/>
         <rect x="170" y="290" width="180" height="120" stroke="#1C1C1A" stroke-width="1" fill="#F7F3ED"/>
-        <!-- Door symbols -->
         <path d="M130 170 Q110 190 110 170" stroke="#C9A96E" stroke-width="1" fill="none"/>
         <path d="M280 170 Q260 190 260 170" stroke="#C9A96E" stroke-width="1" fill="none"/>
         <path d="M170 290 Q190 310 170 310" stroke="#C9A96E" stroke-width="1" fill="none"/>
-        <!-- Labels -->
         <text x="100" y="88" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Upper Floor</text>
         <text x="100" y="104" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">4 Bedrooms</text>
         <text x="278" y="88" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Upper Floor</text>
@@ -778,7 +772,6 @@
         <text x="88" y="368" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">1 Bedroom</text>
         <text x="258" y="352" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#1C1C1A">Ground Floor</text>
         <text x="258" y="368" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#7A7670">1 CR</text>
-        <!-- North indicator -->
         <circle cx="330" cy="405" r="12" stroke="#C9A96E" stroke-width="1" fill="none"/>
         <text x="330" y="409" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#C9A96E">N</text>
       </svg>
@@ -800,12 +793,12 @@
     <div class="amenity-card fade-up" style="transition-delay:0.1s">
       <img class="amenity-media" src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?w=700&q=80" alt="Public market">
       <div class="amenity-name">Public Market</div>
-      <div class="amenity-dist">5 min drive</div>
+      <div class="amenity-dist">1 min drive</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.2s">
       <img class="amenity-media" src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?w=700&q=80" alt="Town proper">
       <div class="amenity-name">Town Proper</div>
-      <div class="amenity-dist">In the town center</div>
+      <div class="amenity-dist">5 min drive</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.3s">
       <img class="amenity-media" src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=700&q=80" alt="Pharmacies">
@@ -815,7 +808,7 @@
     <div class="amenity-card fade-up" style="transition-delay:0.4s">
       <img class="amenity-media" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=80" alt="Beaches and food stalls">
       <div class="amenity-name">Beaches & Food Stalls</div>
-      <div class="amenity-dist">Short drive to local spots</div>
+      <div class="amenity-dist">5-10 min drive</div>
     </div>
     <div class="amenity-card fade-up" style="transition-delay:0.5s">
       <img class="amenity-media" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80" alt="Daily essentials">
@@ -836,13 +829,13 @@
       <h2 class="section-title">Contact the Owner<br><em>Directly</em></h2>
       <p class="section-body">Serious buyers may contact the owner directly for viewing schedules and full property details.</p>
       <div class="contact-owner">
-        <div class="agent-links" style="margin-top: 0; margin-bottom: 14px;">
+        <div style="margin-bottom: 14px;">
           <a class="agent-link" href="https://www.facebook.com/profile.php?id=61581922807759" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
         </div>
         <p class="link-hint">Tap here to chat instantly -></p>
         <p class="contact-owner-name">Maria Lourdes Bruce</p>
         <p class="contact-owner-role">Owner</p>
-        <p class="contact-owner-phone">09560354405</p>
+        <p class="contact-owner-phone">09451078276</p>
         <p class="contact-owner-email">kenjiermita2020@gmail.com</p>
       </div>
     </div>
@@ -855,7 +848,33 @@
   <div class="footer-copy">© 2026 Beautiful Home. All rights reserved.</div>
 </footer>
 
-<button class="floating-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Viewing</button>
+<button class="floating-cta" onclick="openSchedModal()">Book Viewing</button>
+
+<!-- SCHEDULE VIEWING MODAL -->
+<div class="sched-modal-overlay" id="schedModal" onclick="closeSchedModal(event)">
+  <div class="sched-modal">
+    <button class="sched-modal-close" onclick="closeSchedModal()">✕</button>
+    <span class="sched-modal-tag">Book a Viewing</span>
+    <h2 class="sched-modal-title">Contact the Owner<br><em>Directly</em></h2>
+    <p class="sched-modal-body">To schedule a property viewing, please reach out to the owner using any of the contact details below. Weekday and weekend slots are available with advance confirmation.</p>
+    <hr class="sched-modal-divider">
+    <div class="sched-contact-row">
+      <div class="sched-icon">📞</div>
+      <div>
+        <span class="sched-contact-label">Call or Text</span>
+        <a class="sched-contact-value" href="tel:+639451078276">09451078276</a>
+      </div>
+    </div>
+    <div class="sched-contact-row">
+      <div class="sched-icon">✉️</div>
+      <div>
+        <span class="sched-contact-label">Email</span>
+        <a class="sched-contact-value" href="mailto:kenjiermita2020@gmail.com">kenjiermita2020@gmail.com</a>
+      </div>
+    </div>
+    <p class="sched-modal-note">Owner: Maria Lourdes Bruce &nbsp;·&nbsp; Response within 24 hours</p>
+  </div>
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -868,51 +887,111 @@
 </div>
 
 <script>
-// Nav scroll effect
+// ── Nav scroll effect ──
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// Fade-up observer
+// ── Fade-up observer ──
 const fadeEls = document.querySelectorAll('.fade-up');
 const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
 }, { threshold: 0.12 });
 fadeEls.forEach(el => obs.observe(el));
 
-// Gallery filter
-function filterGallery(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    const match = cat === 'all' || item.dataset.cat === cat;
-    item.style.opacity = match ? '1' : '0.25';
-    item.style.pointerEvents = match ? 'auto' : 'none';
+// ────────────────────────────────────────────────
+// ALL PHOTOS — add as many as you like!
+// cat options: 'outdoor'  'kitchen'  'bedroom'  'living'
+// ────────────────────────────────────────────────
+const images = [
+  // OUTDOOR
+  { src: 'images/carport1.jpg',    label: 'Carport',          cat: 'outdoor' },
+  { src: 'images/nipa.jpg',    label: 'Nipa hut',          cat: 'outdoor' },
+  { src: 'images/swim1.jpg',    label: 'Backyard Swimming Pool angle 1',          cat: 'outdoor' },
+  { src: 'images/swim2.jpg',    label: 'Backyard Swimming pool angle 2',          cat: 'outdoor' },
+  { src: 'images/bbq.jpg',    label: 'Bbq Area',          cat: 'outdoor' },
+  { src: 'images/cage.jpg',    label: 'Cage For pets / Stock Area',          cat: 'outdoor' },
+  { src: 'images/front.jpg',    label: 'Front of the House angle 1',          cat: 'outdoor' },
+  { src: 'images/front1.jpg',    label: 'Front of the House angle 2',          cat: 'outdoor' },
+  { src: 'images/veranda.jpg',    label: 'Veranda',          cat: 'outdoor' },
+  { src: 'images/house.jpg',    label: 'Full View of House',          cat: 'outdoor' },
+
+
+
+  // KITCHEN
+  { src: 'images/dine1.jpg',          label: 'Dining Area 1',                 cat: 'kitchen' },
+  { src: 'images/dine2.jpg',          label: 'Kitchen Area',         cat: 'kitchen' },
+  { src: 'images/dine3.jpg',          label: 'Dining Area 2',          cat: 'kitchen' },
+
+  // BEDROOMS
+  { src: 'images/guestroom1.jpg',     label: 'Guest Room angle 1',          cat: 'bedroom' },
+  { src: 'images/guestroom2.jpg',    label: 'Guest Room angle 2', cat: 'bedroom' },
+  { src: 'images/kidsroom1.jpg',    label: 'Kids Room angle 1', cat: 'bedroom' },
+  { src: 'images/kidsroom1.1.jpg',    label: 'Kids Room angle 2', cat: 'bedroom' },
+  { src: 'images/kidsroom2.jpg',    label: 'Kids Room 2 angle 1', cat: 'bedroom' },
+  { src: 'images/kidsroom2.1.jpg',    label: 'Kids Room 2 angle 2', cat: 'bedroom' },
+   { src: 'images/master.jpg',    label: 'Master Bedroom angle 1', cat: 'bedroom' },
+  { src: 'images/master1.jpg',    label: 'Master Bedroom angle 2', cat: 'bedroom' },
+  { src: 'images/master1.1.jpg',    label: 'Master Bedroom angle 3', cat: 'bedroom' },
+
+  // COMFORT ROOMS — add your CR photos here
+   { src: 'images/crguest1.jpg', label: 'Comfort Room Upstairs angle 1', cat: 'cr' },
+   { src: 'images/crguest2.jpg', label: 'Comfort Room Upstairs angle 2', cat: 'cr' },
+   { src: 'images/mastercr1.jpg', label: 'Master CR angle 1',      cat: 'cr' },
+   { src: 'images/mastercr2.jpg', label: 'Master CR angle 2',      cat: 'cr' },
+   { src: 'images/crdown.jpg', label: 'Comfort Room Downstairs',      cat: 'cr' },
+  // LIVING
+  { src: 'images/lr1.jpg',       label: 'Lounge Room angle 1',     cat: 'living'  },
+  { src: 'images/lr2.jpg',       label: 'Lounge Room angle 2',     cat: 'living'  },
+  { src: 'images/lr3.jpg',       label: 'Kids Living Area angle 1',     cat: 'living'  },
+  { src: 'images/lr4.jpg',       label: 'Kids Living Area angle 2',     cat: 'living'  },
+ 
+];
+
+// ── Gallery state ──
+let currentFilter  = 'all';
+let lightboxList   = [...images];
+let currentIdx     = 0;
+
+// ── Build & render gallery ──
+function buildGallery(filter) {
+  currentFilter = filter;
+  lightboxList  = filter === 'all' ? images : images.filter(i => i.cat === filter);
+
+  const grid  = document.getElementById('galleryGrid');
+  const count = document.getElementById('gallery-count');
+
+  count.textContent = `Showing ${lightboxList.length} photo${lightboxList.length !== 1 ? 's' : ''}`;
+
+  if (lightboxList.length === 0) {
+    grid.innerHTML = '<div class="gallery-empty">No photos in this category yet. Check back soon!</div>';
+    return;
+  }
+
+  grid.innerHTML = lightboxList.map((img, idx) => `
+    <div class="gallery-item fade-up" onclick="openLightbox(${idx})" style="transition-delay:${(idx % 6) * 0.06}s">
+      <img class="gallery-img" src="${img.src}" alt="${img.label}" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">${img.label}</span></div>
+    </div>
+  `).join('');
+
+  // Re-observe newly injected elements for fade-in animation
+  grid.querySelectorAll('.fade-up').forEach(el => {
+    el.classList.remove('visible');
+    obs.observe(el);
   });
 }
 
-// Lightbox
-const images = [
-  { src: 'images/photo-01-front-exterior.png', label: 'Front Exterior' },
-  { src: 'images/photo-08-kitchen-1.png', label: 'Kitchen' },
-  { src: 'images/photo-06-master-bedroom.png', label: 'Master Bedroom' },
-  { src: 'images/photo-11-games-room-2.png', label: 'Games Room' },
-  { src: 'images/photo-03-small-pool-nipahut.png', label: 'Small Pool & Nipa Hut' },
-  { src: 'images/photo-02-dog-cage.png', label: 'Front Dog Cage Area' },
-  { src: 'images/photo-04-games-room-1.png', label: 'Living/Games Area' },
-  { src: 'images/photo-05-master-wardrobe.png', label: 'Master Bedroom Wardrobe' },
-  { src: 'images/photo-07-stairs.png', label: 'Stairway' },
-  { src: 'images/photo-09-kitchen-2.png', label: 'Kitchen Angle 2' },
-  { src: 'images/photo-10-bbq-area.png', label: 'Backyard BBQ Area' },
-  { src: 'images/photo-12-dining.png', label: 'Dining Area' },
-  { src: 'images/photo-13-carport.png', label: 'Carport' },
-  { src: 'images/photo-14-lounge-room.png', label: 'Lounge Room' },
-  { src: 'images/photo-15-small-bar.png', label: 'Small Bar Area' },
-  { src: 'images/photo-16-front-wide.png', label: 'Front View from Street' },
-  { src: 'images/photo-17-balcony.png', label: 'Guest Room Balcony' },
-];
-let currentIdx = 0;
+// ── Filter button click ──
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  buildGallery(cat);
+}
 
+// ── Lightbox ──
 function openLightbox(idx) {
   currentIdx = idx;
   const lb = document.getElementById('lightbox');
@@ -921,36 +1000,67 @@ function openLightbox(idx) {
   updateLightbox();
   document.body.style.overflow = 'hidden';
 }
+
 function closeLightbox() {
   const lb = document.getElementById('lightbox');
   lb.classList.remove('visible');
   setTimeout(() => { lb.classList.remove('open'); document.body.style.overflow = ''; }, 300);
 }
+
 function changeLightbox(dir) {
-  currentIdx = (currentIdx + dir + images.length) % images.length;
+  currentIdx = (currentIdx + dir + lightboxList.length) % lightboxList.length;
   updateLightbox();
 }
+
 function updateLightbox() {
   const img = document.getElementById('lightboxImg');
   img.style.opacity = '0';
   setTimeout(() => {
-    img.src = images[currentIdx].src;
-    img.onload = () => { img.style.opacity = '1'; img.style.transition = 'opacity 0.3s'; };
+    img.src = lightboxList[currentIdx].src;
+    img.alt = lightboxList[currentIdx].label;
+    img.onload = () => { img.style.opacity = '1'; };
   }, 150);
-  document.getElementById('lbCaption').textContent = images[currentIdx].label;
-  document.getElementById('lbCounter').textContent = `${currentIdx + 1} / ${images.length}`;
+  document.getElementById('lbCaption').textContent = lightboxList[currentIdx].label;
+  document.getElementById('lbCounter').textContent = `${currentIdx + 1} / ${lightboxList.length}`;
 }
+
+// Close lightbox on backdrop click
 document.getElementById('lightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
 });
+
+// Keyboard navigation
 document.addEventListener('keydown', e => {
-  if (document.getElementById('lightbox').classList.contains('open')) {
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') changeLightbox(-1);
-    if (e.key === 'ArrowRight') changeLightbox(1);
-  }
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft')  changeLightbox(-1);
+  if (e.key === 'ArrowRight') changeLightbox(1);
 });
 
+// ── Floating CTA visibility ──
+window.addEventListener('scroll', () => {
+  document.querySelector('.floating-cta').style.display =
+    window.scrollY > 400 ? 'inline-block' : 'none';
+});
+
+// ── Schedule Modal ──
+function openSchedModal() {
+  const m = document.getElementById('schedModal');
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSchedModal(e) {
+  if (e && e.target !== document.getElementById('schedModal')) return;
+  const m = document.getElementById('schedModal');
+  m.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeSchedModal();
+});
+
+// ── Init gallery on load ──
+buildGallery('all');
 </script>
 </body>
 </html>
